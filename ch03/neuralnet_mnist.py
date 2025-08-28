@@ -36,9 +36,11 @@ x, t = get_data()
 network = init_network()
 accuracy_cnt = 0
 for i in range(len(x)):
+    # 要素数 10 の float 配列。各要素は、予測する値がそのインデックス番号である確率を表す。
     y = predict(network, x[i])
-    p= np.argmax(y) # 最も確率の高い要素のインデックスを取得
-    if p == t[i]:
+    # 最も確率の高い要素のインデックスを取得  # Predict
+    p = np.argmax(y)
+    if p == t[i]:  # 答え合わせ（ t は正解データ）
         accuracy_cnt += 1
 
 print("Accuracy:" + str(float(accuracy_cnt) / len(x)))
