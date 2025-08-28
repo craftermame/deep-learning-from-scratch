@@ -33,6 +33,7 @@ def predict(network, x):
 
 
 x, t = get_data()
+print('入力層の数:', len(x[0]))  # 784 (= 28 * 28): 画像の全ピクセル
 network = init_network()
 accuracy_cnt = 0
 for i in range(len(x)):
